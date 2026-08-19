@@ -1,34 +1,32 @@
-import { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+import { useEffect, lazy, Suspense } from 'react';
+import { useLocation } from 'react-router-dom';
+import Layout from './components/Layout';
 
-const LazyNotFound = lazy(() => import('./pages/NotFound'));
+const Hero = lazy(() => import('./sections/Hero'));
+const AboutMarquee = lazy(() => import('./sections/AboutMarquee'));
+const Services = lazy(() => import('./sections/Services'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Explore = lazy(() => import('./sections/Explore'));
+const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col bg-orange-900 text-white">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <Header />
-        <main className="flex-grow">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<LazyNotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
+    <Layout>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Hero />
+        <AboutMarquee />
+        <Services />
+        <Projects />
+        <Explore />
         <Footer />
-      </div>
-    </Router>
+      </Suspense>
+    </Layout>
   );
 }
 

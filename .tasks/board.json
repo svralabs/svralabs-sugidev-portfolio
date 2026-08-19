@@ -1,61 +1,55 @@
 {
   "project_name": "svralabs-sugidev-portfolio",
-  "architecture_summary": "Single-page React app. Static build. Dark-orange luxury theme. CSS modules for scoped styles. No backend. Data mock in JSON files. Lazy-load non-critical sections. Mobile-first responsive grid. SVG icons inline. No external font CDN; system stack fallback. ponytail: use CSS variables for theme; swap later for CSS-in-JS if dynamic theming needed.",
+  "architecture_summary": "Single-page React app. Static build. Dark-orange luxury theme. Tailwind CSS for styling. No backend. Pages: Hero landing, About marquee, Services & Projects showcase, Explore section, Collection footer. Navigation shell wire all pages.",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Hero landing page (src/pages/Home/Hero.jsx)",
-      "description": "Build hero section. Dark-orange gradient background. Centered luxury typography. Animated scroll-down chevron. Responsive layout. SVG logo inline. Mock data for headline and subhead. CSS modules for styles.",
+      "title": "Hero landing page (src/pages/Home.jsx)",
+      "description": "Build hero landing. Dark-orange luxury theme. Hero text: 'Sugidev'. Subtitle: 'Luxury Digital Craftsmanship'. CTA button: 'Explore Work'. Background: subtle gradient overlay. Responsive typography.",
       "target_files": [
-        "src/pages/Home/Hero.jsx",
-        "src/pages/Home/Hero.module.css"
+        "src/pages/Home.jsx"
       ],
       "acceptance_criteria": [
-        "Hero renders full viewport height on desktop, 80vh on mobile",
-        "Typography matches luxury serif (Playfair Display or system fallback)",
-        "Scroll-down chevron animates on hover",
-        "Logo SVG scales without pixelation",
-        "Dark-orange gradient covers entire background",
-        "Mock data pulled from src/data/hero.json"
+        "Hero text render correct",
+        "CTA button click scroll to next section",
+        "Dark-orange theme match design",
+        "Mobile & desktop responsive"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Marquee about section (src/components/Marquee.jsx)",
-      "description": "Build horizontal marquee. Infinite scroll. Dark-orange text on black. Luxury font. Responsive speed. Pause on hover. Mock data for about text. CSS modules for styles.",
+      "title": "About marquee component (src/components/AboutMarquee.jsx)",
+      "description": "Build marquee. Dark-orange luxury theme. Infinite horizontal scroll. Text: 'About Sugidev \u2022 Luxury Digital Craftsmanship \u2022'. Smooth animation. Pause on hover.",
       "target_files": [
-        "src/components/Marquee.jsx",
-        "src/components/Marquee.module.css"
+        "src/components/AboutMarquee.jsx"
       ],
       "acceptance_criteria": [
-        "Marquee scrolls infinitely left to right",
-        "Text color matches dark-orange theme",
-        "Speed responsive to viewport width",
-        "Pause animation on hover",
-        "Mock data pulled from src/data/about.json"
+        "Marquee scroll infinite",
+        "Animation smooth, no jank",
+        "Pause on hover",
+        "Dark-orange theme match design"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Services showcase (src/pages/Home/Services.jsx)",
-      "description": "Build services grid. 3-column desktop, 1-column mobile. Dark-orange accent borders. Hover effects. SVG icons for each service. Mock data for service list. CSS modules for styles.",
+      "title": "Services & Projects showcase (src/pages/Showcase.jsx)",
+      "description": "Build services & projects showcase. Dark-orange luxury theme. Grid layout. Services section: 3 cards (Web Design, Branding, Development). Projects section: 4 cards with hover effects. Title: 'Our Services & Projects'.",
       "target_files": [
-        "src/pages/Home/Services.jsx",
-        "src/pages/Home/Services.module.css"
+        "src/pages/Showcase.jsx"
       ],
       "acceptance_criteria": [
-        "Grid collapses to single column on mobile",
-        "Dark-orange border accents on hover",
-        "SVG icons scale without pixelation",
-        "Mock data pulled from src/data/services.json"
+        "Grid layout render correct",
+        "Cards hover effects work",
+        "Dark-orange theme match design",
+        "Mobile & desktop responsive"
       ],
       "status": "TODO"
     },
@@ -63,17 +57,16 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Projects showcase (src/pages/Home/Projects.jsx)",
-      "description": "Build projects grid. Masonry layout. Dark-orange overlay on hover. Project thumbnails. Mock data for project list. CSS modules for styles. ponytail: use CSS grid for masonry; swap to library if IE11 support needed.",
+      "title": "Explore section (src/pages/Explore.jsx)",
+      "description": "Build explore section. Dark-orange luxury theme. Title: 'Explore More'. Subtitle: 'Discover our creative universe'. Background image overlay. CTA button: 'View All Projects'.",
       "target_files": [
-        "src/pages/Home/Projects.jsx",
-        "src/pages/Home/Projects.module.css"
+        "src/pages/Explore.jsx"
       ],
       "acceptance_criteria": [
-        "Masonry layout adapts to image aspect ratios",
-        "Dark-orange overlay appears on hover",
-        "Thumbnails load from mock data",
-        "Mock data pulled from src/data/projects.json"
+        "Title & subtitle render correct",
+        "CTA button click navigate to projects",
+        "Dark-orange theme match design",
+        "Mobile & desktop responsive"
       ],
       "status": "TODO"
     },
@@ -81,17 +74,16 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Explore section (src/pages/Home/Explore.jsx)",
-      "description": "Build explore section. Full-width dark-orange background. Centered CTA button. Luxury typography. Mock data for CTA text. CSS modules for styles.",
+      "title": "Collection footer (src/components/Footer.jsx)",
+      "description": "Build collection footer. Dark-orange luxury theme. 3 columns: 'Quick Links', 'Social Media', 'Newsletter'. Copyright text. Subtle gradient border top.",
       "target_files": [
-        "src/pages/Home/Explore.jsx",
-        "src/pages/Home/Explore.module.css"
+        "src/components/Footer.jsx"
       ],
       "acceptance_criteria": [
-        "Section spans full viewport width",
-        "Dark-orange background covers entire section",
-        "CTA button centered with hover effect",
-        "Mock data pulled from src/data/explore.json"
+        "Columns render correct",
+        "Links functional",
+        "Dark-orange theme match design",
+        "Mobile & desktop responsive"
       ],
       "status": "TODO"
     },
@@ -99,18 +91,17 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Collection footer (src/components/Footer.jsx)",
-      "description": "Build footer. Dark-orange background. 3-column layout. Social links. Copyright text. Mock data for links. CSS modules for styles.",
+      "title": "Global theme & assets (src/styles/theme.css, src/assets/)",
+      "description": "Set global dark-orange luxury theme. Define CSS variables for colors, fonts, spacing. Import fonts (Playfair Display, Inter). Add favicon. Optimize assets.",
       "target_files": [
-        "src/components/Footer.jsx",
-        "src/components/Footer.module.css"
+        "src/styles/theme.css",
+        "src/assets/"
       ],
       "acceptance_criteria": [
-        "Footer spans full viewport width",
-        "Dark-orange background covers entire footer",
-        "3-column layout collapses to single column on mobile",
-        "Social links open in new tab",
-        "Mock data pulled from src/data/footer.json"
+        "CSS variables defined",
+        "Fonts load correct",
+        "Favicon appear in browser tab",
+        "Assets optimized"
       ],
       "status": "TODO"
     },
@@ -118,61 +109,20 @@
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Theme and global styles (src/styles/theme.css, src/styles/global.css)",
-      "description": "Define CSS variables for dark-orange theme. Global reset. Typography stack. Responsive breakpoints. System font fallback. ponytail: variables for theme; swap later for CSS-in-JS if dynamic theming needed.",
-      "target_files": [
-        "src/styles/theme.css",
-        "src/styles/global.css"
-      ],
-      "acceptance_criteria": [
-        "CSS variables defined for dark-orange palette",
-        "Global reset removes default margins/padding",
-        "Typography stack prioritizes Playfair Display, falls back to serif",
-        "Responsive breakpoints defined for mobile/tablet/desktop",
-        "System font stack used as final fallback"
-      ],
-      "status": "DONE"
-    },
-    {
-      "id": "TASK-008",
-      "role": "frontend",
-      "model": "hermes-auto",
-      "title": "Mock data setup (src/data/*.json)",
-      "description": "Create JSON files for all mock data. Hero, about, services, projects, explore, footer. Structure matches component needs. ponytail: static JSON; swap to API later if dynamic data needed.",
-      "target_files": [
-        "src/data/hero.json",
-        "src/data/about.json",
-        "src/data/services.json",
-        "src/data/projects.json",
-        "src/data/explore.json",
-        "src/data/footer.json"
-      ],
-      "acceptance_criteria": [
-        "JSON files created for each section",
-        "Data structure matches component requirements",
-        "No sensitive data in mock files"
-      ],
-      "status": "DONE"
-    },
-    {
-      "id": "TASK-009",
-      "role": "frontend",
-      "model": "hermes-auto",
       "title": "App shell and navigation wiring (src/App.jsx)",
-      "description": "Wire all pages and components. Main layout. Dark-orange theme applied. Lazy-load non-critical sections. Responsive meta tags. ponytail: static routes; swap to router later if multi-page needed.",
+      "description": "Wire all pages & components. Set up React Router. Dark-orange luxury theme. Smooth scroll between sections. Lazy load pages. Error boundary for 404.",
       "target_files": [
         "src/App.jsx"
       ],
       "acceptance_criteria": [
-        "All components imported and rendered in correct order",
-        "Dark-orange theme applied globally",
-        "Non-critical sections lazy-loaded",
-        "Responsive meta tags included",
-        "No console errors on render"
+        "All pages render correct",
+        "Navigation between sections smooth",
+        "Lazy load work",
+        "404 page show on invalid route"
       ],
       "status": "TODO"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 02:59:30"
+  "updated_at": "2026-08-20 03:01:39"
 }

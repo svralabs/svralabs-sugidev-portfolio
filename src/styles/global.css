@@ -1,49 +1,21 @@
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-html {
-  font-size: 16px;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  font-family: var(--font-primary), var(--font-secondary);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  min-height: 100vh;
+  @apply bg-dark-bg text-white font-inter;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary), var(--font-secondary);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-md);
+  @apply font-bold;
 }
 
-p {
-  margin-bottom: var(--spacing-md);
+a {
+  @apply text-dark-orange hover:text-dark-orange-dark;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: var(--breakpoint-mobile)) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: var(--breakpoint-tablet)) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: var(--breakpoint-desktop)) {
-  html {
-    font-size: 16px;
-  }
+button {
+  @apply rounded px-4 py-2;
 }
