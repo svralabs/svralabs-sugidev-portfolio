@@ -1,41 +1,32 @@
-import { useRef } from 'react';
+import { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-export default function Home() {
-  const nextSectionRef = useRef(null);
-
-  const scrollToNextSection = () => {
-    nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+const Home = () => {
+  useEffect(() => {
+    const underline = document.querySelector('.underline-animation');
+    if (underline) {
+      underline.style.width = '100%';
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-900 to-orange-700 text-white">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Sugidev</h1>
-        <nav>
-          <ul className="flex space-x-6">
-            <li><a href="#about" className="hover:text-orange-200">About</a></li>
-            <li><a href="#work" className="hover:text-orange-200">Work</a></li>
-            <li><a href="#contact" className="hover:text-orange-200">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      <main className="flex-grow flex items-center justify-center px-4">
-        <div className="text-center max-w-2xl">
-          <h2 className="text-6xl md:text-8xl font-bold mb-4">Sugidev</h2>
-          <p className="text-xl md:text-2xl mb-8">Luxury Digital Craftsmanship</p>
-          <button
-            onClick={scrollToNextSection}
-            className="bg-white text-orange-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-orange-100 transition-colors duration-300 flex items-center mx-auto"
-          >
+    <section className="min-h-screen bg-gradient-to-br from-[#2F4F4F] to-[#1E3A3A] text-white flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
+      <div className="md:w-2/3 space-y-6">
+        <h1 className="font-playfair text-4xl md:text-6xl font-bold">Sugidev</h1>
+        <p className="font-inter text-1.25rem font-light tracking-wider">Digital Craftsman</p>
+        <div className="relative inline-block">
+          <button className="bg-[#D2691E] hover:bg-[#FFD700] text-white font-bold py-3 px-6 rounded transition-colors duration-300">
             Explore Work
-            <ChevronDown className="ml-2" size={20} />
           </button>
+          <div className="absolute bottom-0 left-0 h-0.5 bg-[#FFD700] w-0 underline-animation"></div>
         </div>
-      </main>
-
-      <div ref={nextSectionRef} className="h-16"></div>
-    </div>
+      </div>
+      <div className="md:w-1/3 mt-8 md:mt-0"></div>
+      <div className="fixed bottom-8 right-8 animate-bounce">
+        <ChevronDown className="w-8 h-8 text-[#FFD700]" />
+      </div>
+    </section>
   );
-}
+};
+
+export default Home;

@@ -3,15 +3,23 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        'dark-orange': '#C85A00',
-        'dark-orange-dark': '#A04A00',
-        'dark-bg': '#1A1A1A',
+        primary: '#D2691E',
+        secondary: '#FFD700',
+        text: '#2F4F4F',
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
       },
     },
   },

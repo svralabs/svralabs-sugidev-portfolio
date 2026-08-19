@@ -1,33 +1,14 @@
-import { useEffect, lazy, Suspense } from 'react';
-import { useLocation } from 'react-router-dom';
-import Layout from './components/Layout';
+import { Home, Marquee, Services, Projects, Explore, Footer } from './components';
 
-const Hero = lazy(() => import('./sections/Hero'));
-const AboutMarquee = lazy(() => import('./sections/AboutMarquee'));
-const Services = lazy(() => import('./sections/Services'));
-const Projects = lazy(() => import('./sections/Projects'));
-const Explore = lazy(() => import('./sections/Explore'));
-const Footer = lazy(() => import('./sections/Footer'));
-
-function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
+export default function App() {
   return (
-    <Layout>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Hero />
-        <AboutMarquee />
-        <Services />
-        <Projects />
-        <Explore />
-        <Footer />
-      </Suspense>
-    </Layout>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-orange-900 to-gray-900 text-white">
+      <Home />
+      <Marquee />
+      <Services />
+      <Projects />
+      <Explore />
+      <Footer />
+    </div>
   );
 }
-
-export default App;
