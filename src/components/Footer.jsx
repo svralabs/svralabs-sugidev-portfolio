@@ -1,77 +1,92 @@
-import { Link } from 'react-router-dom';
-import { Globe, Mail, ExternalLink, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Globe, Mail, ExternalLink, ArrowRight, Code } from 'lucide-react';
 
 const Footer = () => {
   const links = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '#home' },
+    { name: 'Services', path: '#services' },
+    { name: 'Projects', path: '#projects' },
+    { name: 'Explore', path: '#explore' },
   ];
 
   const projects = [
-    { name: 'Project 1', path: '/projects/1' },
-    { name: 'Project 2', path: '/projects/2' },
-    { name: 'Project 3', path: '/projects/3' },
-    { name: 'Project 4', path: '/projects/4' },
-    { name: 'Project 5', path: '/projects/5' },
-    { name: 'Project 6', path: '/projects/6' },
+    { name: 'E-Commerce Platform', path: '#projects' },
+    { name: 'Logistics Tracker', path: '#projects' },
+    { name: 'SaaS Design System', path: '#projects' },
+    { name: 'Travel Booking Vista', path: '#projects' },
   ];
 
   const socials = [
-    { name: 'GitHub', icon: Github, url: 'https://github.com' },
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
+    { name: 'Website', icon: Globe, url: 'https://svralabs.com' },
+    { name: 'Contact', icon: Mail, url: 'mailto:contact@svralabs.com' },
+    { name: 'Portfolio', icon: ExternalLink, url: 'https://github.com/svralabs' },
   ];
 
   return (
-    <footer className="bg-orange-900 text-yellow-400 py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-[#131313] border-t border-[#353534] text-[#e5e2e1] py-12">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-bold mb-4 font-playfair">Links</h3>
+            <div className="flex items-center space-x-2 mb-4">
+              <span className="w-3 h-3 rounded-full bg-[#ae3200]"></span>
+              <h3 className="text-xl font-bold tracking-wider text-white">SUGIDEV</h3>
+            </div>
+            <p className="text-sm text-gray-400">
+              High-end digital craftsmanship, product engineering & bespoke interfaces.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Navigation</h4>
             <ul className="space-y-2">
               {links.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-yellow-300 font-inter text-sm">
+                  <a href={link.path} className="text-gray-300 hover:text-white transition text-sm">
                     {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4 font-playfair">Projects</h3>
-            <ul className="space-y-2">
-              {projects.map((project) => (
-                <li key={project.name}>
-                  <Link to={project.path} className="hover:text-yellow-300 font-inter text-sm">
-                    {project.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4 font-playfair">Socials</h3>
-            <ul className="space-y-2">
-              {socials.map((social) => (
-                <li key={social.name}>
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center hover:text-yellow-300 font-inter text-sm"
-                  >
-                    <social.icon className="mr-2 h-4 w-4" />
-                    {social.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4 font-playfair">Copyright</h3>
-            <p className="font-inter text-sm">© 2023 Sugidev</p>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Featured Work</h4>
+            <ul className="space-y-2">
+              {projects.map((project) => (
+                <li key={project.name}>
+                  <a href={project.path} className="text-gray-300 hover:text-white transition text-sm">
+                    {project.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Connect</h4>
+            <ul className="space-y-2">
+              {socials.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <li key={social.name}>
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-300 hover:text-white transition text-sm space-x-2"
+                    >
+                      <IconComponent className="h-4 w-4 text-[#ae3200]" />
+                      <span>{social.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-[#252525] flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} Sugidev Portfolio. Engineered with SVRALABS Factory 2.0.</p>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <a href="https://svralabs-sugidev-portfolio.pages.dev" className="hover:text-gray-300">Live Edge</a>
+            <span>•</span>
+            <a href="https://github.com/svralabs/svralabs-sugidev-portfolio" className="hover:text-gray-300">Source</a>
           </div>
         </div>
       </div>
