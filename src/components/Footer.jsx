@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Globe, Mail, ExternalLink, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   const links = [

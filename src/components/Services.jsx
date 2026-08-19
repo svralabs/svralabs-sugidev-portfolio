@@ -1,8 +1,8 @@
-import { Figma, Code, MessageSquare } from 'lucide-react';
+import { Palette, Code, MessageSquare } from 'lucide-react';
 
 const Services = () => {
   const services = [
-    { name: 'Design', icon: <Figma size={24} /> },
+    { name: 'Design', icon: <Palette size={24} /> },
     { name: 'Development', icon: <Code size={24} /> },
     { name: 'Consulting', icon: <MessageSquare size={24} /> },
   ];
