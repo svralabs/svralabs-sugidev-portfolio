@@ -1,0 +1,144 @@
+{
+  "project_name": "svralabs-sugidev-portfolio",
+  "architecture_summary": "Static React portfolio. Single-page app. TailwindCSS for styling. Dark-orange luxury theme. No backend. Data static JSON files. Mobile-first responsive grid. Hero, marquee, services, projects, explore, footer sections.",
+  "tickets": [
+    {
+      "id": "TASK-001",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Hero landing section (src/pages/Home/Hero.jsx)",
+      "description": "Build hero landing. Dark-orange gradient background. Centered luxury typography. Animated scroll-down chevron. Responsive layout.",
+      "target_files": [
+        "src/pages/Home/Hero.jsx"
+      ],
+      "acceptance_criteria": [
+        "Hero fills viewport height",
+        "Typography: Playfair Display, 4rem desktop, 2.5rem mobile",
+        "Chevron bounces every 3s",
+        "Tailwind classes: bg-gradient-to-b from-orange-900 to-orange-700, text-amber-100"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-002",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Marquee about section (src/components/Marquee.jsx)",
+      "description": "Build marquee. Infinite horizontal scroll. Luxury serif text. Dark-orange background. Pause on hover.",
+      "target_files": [
+        "src/components/Marquee.jsx"
+      ],
+      "acceptance_criteria": [
+        "Marquee loops seamlessly",
+        "Text: 'Sugidev \u2014 Creative Developer \u2014 Portfolio'",
+        "Tailwind: bg-orange-800, text-amber-50, animate-marquee"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-003",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Services showcase section (src/pages/Home/Services.jsx)",
+      "description": "Build services grid. 3-column desktop, 1-column mobile. Dark card background. Hover scale effect. Static data from src/data/services.json.",
+      "target_files": [
+        "src/pages/Home/Services.jsx",
+        "src/data/services.json"
+      ],
+      "acceptance_criteria": [
+        "Grid responsive",
+        "Cards: bg-orange-900/50, hover:scale-105",
+        "Data loaded from JSON",
+        "Icons from react-icons/fa"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-004",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Projects showcase section (src/pages/Home/Projects.jsx)",
+      "description": "Build projects grid. Masonry layout. Dark-orange overlay on hover. Static data from src/data/projects.json.",
+      "target_files": [
+        "src/pages/Home/Projects.jsx",
+        "src/data/projects.json"
+      ],
+      "acceptance_criteria": [
+        "Masonry grid using CSS columns",
+        "Hover: overlay with project name, bg-orange-800/80",
+        "Data loaded from JSON",
+        "Images lazy-loaded"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-005",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Explore section (src/pages/Home/Explore.jsx)",
+      "description": "Build explore CTA. Full-width dark-orange banner. Centered button. Link to external contact.",
+      "target_files": [
+        "src/pages/Home/Explore.jsx"
+      ],
+      "acceptance_criteria": [
+        "Banner: bg-gradient-to-r from-orange-900 to-orange-600",
+        "Button: 'Let\u2019s Collaborate', hover:bg-orange-500",
+        "Link opens mailto:contact@sugidev.com"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-006",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Collection footer (src/components/Footer.jsx)",
+      "description": "Build footer. 3-column links. Dark-orange background. Copyright text. Social icons.",
+      "target_files": [
+        "src/components/Footer.jsx"
+      ],
+      "acceptance_criteria": [
+        "Columns: Services, Projects, Contact",
+        "Background: bg-orange-900",
+        "Social icons: GitHub, LinkedIn, Twitter",
+        "Copyright text: '\u00a9 2024 Sugidev'"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-007",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Dark-orange luxury theme (src/styles/theme.js)",
+      "description": "Configure Tailwind theme. Dark-orange palette. Luxury typography. Custom animations.",
+      "target_files": [
+        "src/styles/theme.js",
+        "tailwind.config.js"
+      ],
+      "acceptance_criteria": [
+        "Colors: orange-50 to orange-900, amber-50 to amber-200",
+        "Fonts: Playfair Display (serif), Inter (sans)",
+        "Animations: marquee, bounce, scale"
+      ],
+      "status": "TODO"
+    },
+    {
+      "id": "TASK-008",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "App shell and navigation wiring (src/App.jsx)",
+      "description": "Wire all sections. Dark background. Smooth scroll. Mobile menu toggle. Import all page components.",
+      "target_files": [
+        "src/App.jsx"
+      ],
+      "acceptance_criteria": [
+        "All sections imported and rendered",
+        "Background: bg-orange-950",
+        "Smooth scroll: scroll-behavior: smooth",
+        "Mobile menu: hamburger icon, toggle visibility"
+      ],
+      "status": "TODO"
+    }
+  ],
+  "status": "IN_PROGRESS",
+  "updated_at": "2026-08-20 02:57:01"
+}
