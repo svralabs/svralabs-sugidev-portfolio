@@ -71,7 +71,7 @@
         "Columns: 3 desktop, 2 tablet, 1 mobile",
         "Orange border on focus for keyboard nav"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-005",
@@ -88,7 +88,7 @@
         "CTA button glows on hover, same as hero",
         "Overlay gradient dark-orange to transparent"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-006",
@@ -105,7 +105,7 @@
         "Social icons SVG, hover scale effect",
         "Copyright text small, centered below columns"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-007",
@@ -122,7 +122,7 @@
         "Provider wraps app root",
         "Toggle function logs warning if called (stub)"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-008",
@@ -138,7 +138,7 @@
         "SectionWrapper adds padding, max-width, centers content",
         "LuxurySerifText component wraps text in Playfair Display"
       ],
-      "status": "TODO"
+      "status": "DONE"
     },
     {
       "id": "TASK-009",

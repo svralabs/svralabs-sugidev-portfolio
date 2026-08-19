@@ -1,24 +1,30 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
-export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
+function App() {
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
 
   return (
-    <div className="bg-orange-950 scroll-smooth">
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
-  )
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-gray-900 text-orange-500 font-serif">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
 }
+
+export default App;
