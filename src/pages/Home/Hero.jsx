@@ -1,37 +1,49 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import Logo from '../../assets/logo.svg';
 
 const Hero = () => {
+  const headlineRef = useRef(null);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      const chevron = document.getElementById('scroll-chevron');
-      chevron.classList.add('animate-bounce');
-      setTimeout(() => {
-        chevron.classList.remove('animate-bounce');
-      }, 1000);
-    }, 3000);
-    return () => clearInterval(interval);
+    const headline = headlineRef.current;
+    if (!headline) return;
+
+    const underline = document.createElement('span');
+    underline.className = 'absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300';
+    headline.appendChild(underline);
+
+    const handleMouseEnter = () => {
+      underline.style.width = '100%';
+    };
+
+    const handleMouseLeave = () => {
+      underline.style.width = '0';
+    };
+
+    headline.addEventListener('mouseenter', handleMouseEnter);
+    headline.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      headline.removeEventListener('mouseenter', handleMouseEnter);
+      headline.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-orange-900 to-orange-700 text-amber-100">
-      <h1 className="text-4xl md:text-6xl font-bold font-playfair text-center px-4">
-        SVRALABS
-      </h1>
-      <div id="scroll-chevron" className="mt-8">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <section className="relative flex items-center justify-center min-h-[calc(100vh-64px)] bg-gradient-to-br from-orange-800 to-black">
+      <div className="absolute top-4 left-4 max-w-[120px]">
+        <img src={Logo} alt="SVRALABS Logo" className="w-full h-auto" />
+      </div>
+      <div className="text-center px-4">
+        <h1
+          ref={headlineRef}
+          className="relative font-playfair text-4xl md:text-6xl font-bold text-white mb-8"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+          Elevate Your Digital Presence
+        </h1>
+        <button className="px-8 py-3 bg-orange-500 text-white font-bold rounded-full hover:bg-white hover:text-orange-500 transition-colors duration-300 shadow-lg hover:shadow-orange-500/50">
+          Get Started
+        </button>
       </div>
     </section>
   );
