@@ -1,0 +1,30 @@
+on
+{
+  "title": "Our Services",
+  "services": [
+    {
+      "id": 1,
+      "title": "Web Development",
+      "description": "We create responsive and user-friendly websites tailored to your business needs.",
+      "icon": "web"
+    },
+    {
+      "id": 2,
+      "title": "Mobile App Development",
+      "description": "Our team develops mobile applications for both iOS and Android platforms.",
+      "icon": "mobile"
+    },
+    {
+      "id": 3,
+      "title": "UI/UX Design",
+      "description": "We design intuitive and visually appealing user interfaces for your applications.",
+      "icon": "design"
+    },
+    {
+      "id": 4,
+      "title": "Software Consulting",
+      "description": "Our experts provide strategic guidance to help you make the most of your technology investments.",
+      "icon": "consulting"
+    }
+  ]
+}

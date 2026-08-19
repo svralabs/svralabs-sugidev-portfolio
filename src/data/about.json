@@ -1,0 +1,8 @@
+on
+{
+  "title": "About Us",
+  "description": "SVRALABS is a team of passionate developers dedicated to creating high-quality software solutions. We specialize in web and mobile application development, and we're committed to delivering exceptional results for our clients.",
+  "mission": "Our mission is to empower businesses with innovative technology solutions that drive growth and success.",
+  "vision": "We envision a future where technology seamlessly integrates into every aspect of our lives, making them more efficient and enjoyable.",
+  "imageUrl": "/images/about-image.jpg"
+}

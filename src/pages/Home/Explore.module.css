@@ -1,0 +1,30 @@
+.exploreSection {
+  width: 100vw;
+  background-color: #FF8C00;
+  padding: 4rem 0;
+}
+
+.ctaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.ctaButton {
+  background-color: #FFFFFF;
+  color: #FF8C00;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}

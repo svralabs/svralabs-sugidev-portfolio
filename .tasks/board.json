@@ -1,22 +1,24 @@
 {
   "project_name": "svralabs-sugidev-portfolio",
-  "architecture_summary": "Single-page React app. Static build. TailwindCSS for styling. No backend. Dark-orange luxury theme. Mobile-first responsive. Pre-rendered marquee for performance. Lazy-loaded project images. Footer collection links static. No auth. No state management beyond React context for theme.",
+  "architecture_summary": "Single-page React app. Static build. Dark-orange luxury theme. CSS modules for scoped styles. No backend. Data mock in JSON files. Lazy-load non-critical sections. Mobile-first responsive grid. SVG icons inline. No external font CDN; system stack fallback. ponytail: use CSS variables for theme; swap later for CSS-in-JS if dynamic theming needed.",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
       "title": "Hero landing page (src/pages/Home/Hero.jsx)",
-      "description": "Build hero section. Dark-orange gradient bg. Luxury serif headline. Subtle animated underline. CTA button with hover glow. Responsive typography. SVG logo top-left fixed. No scroll hijacking.",
+      "description": "Build hero section. Dark-orange gradient background. Centered luxury typography. Animated scroll-down chevron. Responsive layout. SVG logo inline. Mock data for headline and subhead. CSS modules for styles.",
       "target_files": [
-        "src/pages/Home/Hero.jsx"
+        "src/pages/Home/Hero.jsx",
+        "src/pages/Home/Hero.module.css"
       ],
       "acceptance_criteria": [
-        "Hero renders full viewport height minus nav",
-        "Headline uses Playfair Display, 4rem desktop, 2.5rem mobile",
-        "CTA button glows on hover, orange to white transition",
-        "Logo SVG scales with viewport, max 120px width",
-        "No layout shift on load"
+        "Hero renders full viewport height on desktop, 80vh on mobile",
+        "Typography matches luxury serif (Playfair Display or system fallback)",
+        "Scroll-down chevron animates on hover",
+        "Logo SVG scales without pixelation",
+        "Dark-orange gradient covers entire background",
+        "Mock data pulled from src/data/hero.json"
       ],
       "status": "TODO"
     },
@@ -24,17 +26,18 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Marquee about section (src/pages/Home/AboutMarquee.jsx)",
-      "description": "Build marquee. Dark bg. Orange text. Luxury serif. Infinite horizontal scroll. Pre-rendered SVG path for performance. Pause on hover. Responsive speed. No JS scroll events.",
+      "title": "Marquee about section (src/components/Marquee.jsx)",
+      "description": "Build horizontal marquee. Infinite scroll. Dark-orange text on black. Luxury font. Responsive speed. Pause on hover. Mock data for about text. CSS modules for styles.",
       "target_files": [
-        "src/pages/Home/AboutMarquee.jsx"
+        "src/components/Marquee.jsx",
+        "src/components/Marquee.module.css"
       ],
       "acceptance_criteria": [
-        "Marquee scrolls left to right infinite loop",
-        "Text uses Playfair Display, 3rem desktop, 2rem mobile",
-        "SVG path pre-rendered, no runtime generation",
-        "Scroll pauses on hover",
-        "Speed scales with viewport width"
+        "Marquee scrolls infinitely left to right",
+        "Text color matches dark-orange theme",
+        "Speed responsive to viewport width",
+        "Pause animation on hover",
+        "Mock data pulled from src/data/about.json"
       ],
       "status": "TODO"
     },
@@ -43,15 +46,16 @@
       "role": "frontend",
       "model": "hermes-auto",
       "title": "Services showcase (src/pages/Home/Services.jsx)",
-      "description": "Build services grid. 3-column desktop, 1-column mobile. Dark bg. Orange accents. Luxury serif headings. SVG icons. Hover scale effect. No JS animations.",
+      "description": "Build services grid. 3-column desktop, 1-column mobile. Dark-orange accent borders. Hover effects. SVG icons for each service. Mock data for service list. CSS modules for styles.",
       "target_files": [
-        "src/pages/Home/Services.jsx"
+        "src/pages/Home/Services.jsx",
+        "src/pages/Home/Services.module.css"
       ],
       "acceptance_criteria": [
-        "Grid collapses to 1 column below 768px",
-        "Each service card has SVG icon, heading, short description",
-        "Cards scale 1.05 on hover via CSS transform",
-        "Headings use Playfair Display, 2rem desktop, 1.5rem mobile"
+        "Grid collapses to single column on mobile",
+        "Dark-orange border accents on hover",
+        "SVG icons scale without pixelation",
+        "Mock data pulled from src/data/services.json"
       ],
       "status": "TODO"
     },
@@ -60,67 +64,72 @@
       "role": "frontend",
       "model": "hermes-auto",
       "title": "Projects showcase (src/pages/Home/Projects.jsx)",
-      "description": "Build projects grid. Masonry layout. Dark bg. Orange borders. Luxury serif. Lazy-loaded images. Hover overlay with title. Responsive columns. No JS masonry libs.",
+      "description": "Build projects grid. Masonry layout. Dark-orange overlay on hover. Project thumbnails. Mock data for project list. CSS modules for styles. ponytail: use CSS grid for masonry; swap to library if IE11 support needed.",
       "target_files": [
-        "src/pages/Home/Projects.jsx"
+        "src/pages/Home/Projects.jsx",
+        "src/pages/Home/Projects.module.css"
       ],
       "acceptance_criteria": [
-        "Masonry layout via CSS grid auto-flow dense",
-        "Images lazy-loaded with native loading=lazy",
-        "Hover overlay shows project title, fades in",
-        "Columns: 3 desktop, 2 tablet, 1 mobile",
-        "Orange border on focus for keyboard nav"
+        "Masonry layout adapts to image aspect ratios",
+        "Dark-orange overlay appears on hover",
+        "Thumbnails load from mock data",
+        "Mock data pulled from src/data/projects.json"
       ],
-      "status": "DONE"
+      "status": "TODO"
     },
     {
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
       "title": "Explore section (src/pages/Home/Explore.jsx)",
-      "description": "Build explore section. Dark bg. Orange gradient overlay. Luxury serif headline. CTA button. Full-width image background. Parallax effect via CSS background-attachment. No JS.",
+      "description": "Build explore section. Full-width dark-orange background. Centered CTA button. Luxury typography. Mock data for CTA text. CSS modules for styles.",
       "target_files": [
-        "src/pages/Home/Explore.jsx"
+        "src/pages/Home/Explore.jsx",
+        "src/pages/Home/Explore.module.css"
       ],
       "acceptance_criteria": [
-        "Background image covers full width, parallax on scroll",
-        "Headline uses Playfair Display, 3rem desktop, 2rem mobile",
-        "CTA button glows on hover, same as hero",
-        "Overlay gradient dark-orange to transparent"
+        "Section spans full viewport width",
+        "Dark-orange background covers entire section",
+        "CTA button centered with hover effect",
+        "Mock data pulled from src/data/explore.json"
       ],
-      "status": "DONE"
+      "status": "TODO"
     },
     {
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Collection footer (src/pages/Home/CollectionFooter.jsx)",
-      "description": "Build footer. Dark bg. Orange text. Luxury serif. 3-column links. Social icons. Copyright text. Responsive columns. No JS.",
+      "title": "Collection footer (src/components/Footer.jsx)",
+      "description": "Build footer. Dark-orange background. 3-column layout. Social links. Copyright text. Mock data for links. CSS modules for styles.",
       "target_files": [
-        "src/pages/Home/CollectionFooter.jsx"
+        "src/components/Footer.jsx",
+        "src/components/Footer.module.css"
       ],
       "acceptance_criteria": [
-        "Columns collapse to 1 below 768px",
-        "Links use Playfair Display, 1.25rem desktop, 1rem mobile",
-        "Social icons SVG, hover scale effect",
-        "Copyright text small, centered below columns"
+        "Footer spans full viewport width",
+        "Dark-orange background covers entire footer",
+        "3-column layout collapses to single column on mobile",
+        "Social links open in new tab",
+        "Mock data pulled from src/data/footer.json"
       ],
-      "status": "DONE"
+      "status": "TODO"
     },
     {
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Theme context and provider (src/context/ThemeContext.jsx)",
-      "description": "Build theme context. Dark-orange luxury theme. CSS variables for colors. Provider wraps app. Toggle function stub. No UI for toggle yet.",
+      "title": "Theme and global styles (src/styles/theme.css, src/styles/global.css)",
+      "description": "Define CSS variables for dark-orange theme. Global reset. Typography stack. Responsive breakpoints. System font fallback. ponytail: variables for theme; swap later for CSS-in-JS if dynamic theming needed.",
       "target_files": [
-        "src/context/ThemeContext.jsx"
+        "src/styles/theme.css",
+        "src/styles/global.css"
       ],
       "acceptance_criteria": [
-        "Context provides theme object with colors, fonts",
         "CSS variables defined for dark-orange palette",
-        "Provider wraps app root",
-        "Toggle function logs warning if called (stub)"
+        "Global reset removes default margins/padding",
+        "Typography stack prioritizes Playfair Display, falls back to serif",
+        "Responsive breakpoints defined for mobile/tablet/desktop",
+        "System font stack used as final fallback"
       ],
       "status": "DONE"
     },
@@ -128,15 +137,20 @@
       "id": "TASK-008",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Shared components (src/components/Shared.jsx)",
-      "description": "Build shared components. Button, SectionWrapper, LuxurySerifText. Dark-orange theme. Reusable props. No business logic.",
+      "title": "Mock data setup (src/data/*.json)",
+      "description": "Create JSON files for all mock data. Hero, about, services, projects, explore, footer. Structure matches component needs. ponytail: static JSON; swap to API later if dynamic data needed.",
       "target_files": [
-        "src/components/Shared.jsx"
+        "src/data/hero.json",
+        "src/data/about.json",
+        "src/data/services.json",
+        "src/data/projects.json",
+        "src/data/explore.json",
+        "src/data/footer.json"
       ],
       "acceptance_criteria": [
-        "Button component handles hover glow, size props",
-        "SectionWrapper adds padding, max-width, centers content",
-        "LuxurySerifText component wraps text in Playfair Display"
+        "JSON files created for each section",
+        "Data structure matches component requirements",
+        "No sensitive data in mock files"
       ],
       "status": "DONE"
     },
@@ -145,20 +159,20 @@
       "role": "frontend",
       "model": "hermes-auto",
       "title": "App shell and navigation wiring (src/App.jsx)",
-      "description": "Wire app shell. Import all page sections. Dark bg. Orange text. Luxury serif. Smooth scroll. Responsive meta tags. No unused imports. Final ticket.",
+      "description": "Wire all pages and components. Main layout. Dark-orange theme applied. Lazy-load non-critical sections. Responsive meta tags. ponytail: static routes; swap to router later if multi-page needed.",
       "target_files": [
         "src/App.jsx"
       ],
       "acceptance_criteria": [
-        "All page sections imported and rendered in order",
-        "Smooth scroll behavior via CSS",
-        "Responsive meta tags in head",
-        "Theme provider wraps app",
-        "No console errors on load"
+        "All components imported and rendered in correct order",
+        "Dark-orange theme applied globally",
+        "Non-critical sections lazy-loaded",
+        "Responsive meta tags included",
+        "No console errors on render"
       ],
       "status": "TODO"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 02:57:40"
+  "updated_at": "2026-08-20 02:59:30"
 }

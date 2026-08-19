@@ -1,0 +1,51 @@
+on
+{
+  "copyright": "© 2023 SVRALABS. All rights reserved.",
+  "links": [
+    {
+      "id": 1,
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "id": 2,
+      "title": "About",
+      "url": "/about"
+    },
+    {
+      "id": 3,
+      "title": "Services",
+      "url": "/services"
+    },
+    {
+      "id": 4,
+      "title": "Projects",
+      "url": "/projects"
+    },
+    {
+      "id": 5,
+      "title": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "social": [
+    {
+      "id": 1,
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/svralabs",
+      "icon": "facebook"
+    },
+    {
+      "id": 2,
+      "platform": "Twitter",
+      "url": "https://www.twitter.com/svralabs",
+      "icon": "twitter"
+    },
+    {
+      "id": 3,
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/svralabs",
+      "icon": "linkedin"
+    }
+  ]
+}
