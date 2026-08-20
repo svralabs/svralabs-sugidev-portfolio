@@ -1,0 +1,42 @@
+:root {
+  --ember: #FF5A5F;
+  --ink-soft: #2B2B2B;
+  --mist: #A0A0A0;
+  --background: #121212;
+  --on-background: #FFFFFF;
+  --on-surface-variant: #8C8C8C;
+  --on-surface: #E0E0E0;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  padding: 1rem;
+  text-align: left;
+  background-color: var(--ink-soft);
+  color: var(--on-background);
+  font-weight: 500;
+  border-bottom: 1px solid var(--mist);
+}
+
+.td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.1);
+  color: var(--on-background);
+}
+
+.tr:nth-child(even) {
+  background-color: rgba(160, 160, 160, 0.05);
+}
+
+.tr:hover {
+  background-color: rgba(160, 160, 160, 0.1);
+}

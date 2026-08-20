@@ -6,22 +6,16 @@ import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Contact from './pages/Contact';
 import HeroLanding from './pages/HeroLanding';
-import MarqueeAbout from './pages/MarqueeAbout';
 import ShowcaseExplore from './pages/ShowcaseExplore';
-import Insights from './pages/Insights';
 import ServicesProjects from './pages/ServicesProjects';
-import ProjectInquiry from './pages/ProjectInquiry';
 
 function ScreenBar() {
   const loc = useLocation();
   const navs = [
     { path: '/', label: 'Contact' },
     { path: '/herolanding', label: 'HeroLanding' },
-    { path: '/marqueeabout', label: 'MarqueeAbout' },
     { path: '/showcaseexplore', label: 'ShowcaseExplore' },
-    { path: '/insights', label: 'Insights' },
-    { path: '/servicesprojects', label: 'ServicesProjects' },
-    { path: '/projectinquiry', label: 'ProjectInquiry' }
+    { path: '/servicesprojects', label: 'ServicesProjects' }
   ];
 
   return (
@@ -59,11 +53,8 @@ export default function App() {
                 <Routes>
                   <Route path='/' element={<Contact />} />
         <Route path='/herolanding' element={<HeroLanding />} />
-        <Route path='/marqueeabout' element={<MarqueeAbout />} />
         <Route path='/showcaseexplore' element={<ShowcaseExplore />} />
-        <Route path='/insights' element={<Insights />} />
         <Route path='/servicesprojects' element={<ServicesProjects />} />
-        <Route path='/projectinquiry' element={<ProjectInquiry />} />
                   <Route path="*" element={<Contact />} />
                 </Routes>
               </div>

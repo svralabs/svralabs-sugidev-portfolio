@@ -1,49 +1,61 @@
-import React from 'react';
-import Marquee from '../components/Marquee';
-
-const brand = (slug, color) => `https://cdn.simpleicons.org/${slug}${color ? '/' + color : '/d7e2ea'}`;
-
-const LOGOS = [
-  brand('react'), brand('typescript'), brand('javascript'), brand('nextdotjs', 'ffffff'),
-  brand('tailwindcss'), brand('vuedotjs'), brand('nodedotjs'), brand('graphql'), brand('redux'),
-  brand('vite'), brand('sass'), brand('html5'), brand('css3'), brand('figma'), brand('git'),
-  brand('storybook'), brand('jest'), brand('framer'), brand('vercel', 'ffffff'), brand('webpack'),
-  brand('reactrouter'),
-];
-
-const row1 = [...LOGOS.slice(0, 11), ...LOGOS.slice(0, 11), ...LOGOS.slice(0, 11)];
-const row2 = [...LOGOS.slice(11), ...LOGOS.slice(11), ...LOGOS.slice(11)];
+import React, { useEffect, useRef } from 'react';
+import styles from './MarqueeAbout.module.css';
+import { LOGOS, ABOUT_TEXT } from '../config/marqueeText';
 
 const MarqueeAbout = () => {
+  const row1Ref = useRef(null);
+  const row2Ref = useRef(null);
+
+  useEffect(() => {
+    const row1 = [...LOGOS.slice(0, 11), ...LOGOS.slice(0, 11), ...LOGOS.slice(0, 11)];
+    const row2 = [...LOGOS.slice(11), ...LOGOS.slice(11), ...LOGOS.slice(11)];
+
+    if (row1Ref.current) {
+      row1Ref.current.innerHTML = row1.map(tile).join('');
+    }
+
+    if (row2Ref.current) {
+      row2Ref.current.innerHTML = row2.map(tile).join('');
+    }
+  }, []);
+
+  const tile = (src) => `
+    <div class="shrink-0 flex items-center justify-center rounded-2xl border border-mist/10 bg-ink-soft transition-colors hover:border-ember/50 hover:bg-ember/10" style="width:200px;height:120px">
+      <img src="${src}" alt="Tech Logo" loading="lazy" class="h-10 w-10 md:h-14 md:w-14 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+    </div>
+  `;
+
   return (
     <main className="flex-grow pt-24 relative">
-      <div className="glow-bg"></div>
+      <div className={styles['glow-bg']}></div>
       <section className="relative z-10 pt-16 sm:pt-24 pb-10 overflow-hidden">
         <div className="flex items-center justify-between gap-4 px-6 md:px-12 mb-10 sm:mb-14">
           <span className="text-mist/50 text-xs sm:text-sm font-medium uppercase tracking-[0.3em]">Tech Stack</span>
           <span className="text-mist/50 text-xs sm:text-sm font-medium uppercase tracking-[0.3em]">Tools & Tech</span>
         </div>
-        <Marquee logos={row1} direction="left" />
-        <Marquee logos={row2} direction="right" />
+        <div className={`${styles['edge-fade']} flex flex-col gap-3 overflow-hidden`}>
+          <div ref={row1Ref} className={`${styles['marquee-row']} ${styles['anim-left']}`}></div>
+          <div ref={row2Ref} className={`${styles['marquee-row']} ${styles['anim-right']}`}></div>
+        </div>
       </section>
       <section className="relative z-10 min-h-[80vh] flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 py-20 overflow-hidden" id="about">
         <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24 w-full max-w-5xl">
           <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
-            <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center" style={{ fontSize: 'clamp(3rem, 12vw, 120px)' }}>About me</h2>
+            <h2 className={`${styles['hero-heading']} font-black uppercase leading-none tracking-tight text-center`}>About me</h2>
             <p className="text-mist font-medium text-center leading-relaxed max-w-3xl" style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.75rem)' }}>
-              A frontend developer turning ideas into fast, accessible and polished interfaces. I work best with teams shipping products that need to feel as good as they look. Let's build something worth remembering.
+              {ABOUT_TEXT}
             </p>
             <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 sm:gap-x-24 mt-8">
               <div className="flex flex-col items-center">
-                <span className="heading-ember font-black leading-none" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>3+</span>
+                <span className={`${styles['heading-ember']} font-black leading-none`}>3+</span>
                 <span className="mt-2 text-mist/60 text-xs sm:text-sm font-medium uppercase tracking-[0.2em]">Years with React</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="heading-ember font-black leading-none" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>80+</span>
+                <span className={`${styles['heading-ember']} font-black leading-none`}>80+</span>
                 <span className="mt-2 text-mist/60 text-xs sm:text-sm font-medium uppercase tracking-[0.2em]">Projects shipped</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="heading-ember font-black leading-none" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>30+</span>
+                <span className={`${styles['heading-ember']} font-black leading-none`}>30+</span>
                 <span className="mt-2 text-mist/60 text-xs sm:text-sm font-medium uppercase tracking-[0.2em]">Happy clients</span>
               </div>
             </div>
