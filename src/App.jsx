@@ -1,23 +1,73 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Home from './pages/Home';
-import Marquee from './components/Marquee';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Explore from './components/Explore';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
+import { ThemeProvider } from './context/ThemeContext';
+import ErrorBoundary from './components/ErrorBoundary';
+import AboutMarquee from './pages/AboutMarquee';
+import HeroLanding from './pages/HeroLanding';
+import Footer from './pages/Footer';
+import ShowcaseExplore from './pages/ShowcaseExplore';
+import ServicesProjects from './pages/ServicesProjects';
+import ProjectInquiry from './pages/ProjectInquiry';
+
+function ScreenBar() {
+  const loc = useLocation();
+  const navs = [
+    { path: '/', label: 'AboutMarquee' },
+    { path: '/herolanding', label: 'HeroLanding' },
+    { path: '/footer', label: 'Footer' },
+    { path: '/showcaseexplore', label: 'ShowcaseExplore' },
+    { path: '/servicesprojects', label: 'ServicesProjects' },
+    { path: '/projectinquiry', label: 'ProjectInquiry' }
+  ];
+
+  return (
+    <div className="fixed top-2 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 backdrop-blur-md border border-slate-700/60 rounded-full px-3 py-1.5 shadow-2xl flex items-center gap-1.5 overflow-x-auto max-w-[95vw]">
+      <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest px-2 hidden sm:inline">Screens:</span>
+      {navs.map((n) => {
+        const active = loc.pathname === n.path;
+        return (
+          <Link
+            key={n.path}
+            to={n.path}
+            className={`px-3 py-1 text-xs font-semibold rounded-full transition-all whitespace-nowrap ${
+              active
+                ? 'bg-violet-600 text-white shadow-md shadow-violet-500/30'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            {n.label}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-[#131313] text-[#e5e2e1]">
-        <Home />
-        <Marquee />
-        <Services />
-        <Projects />
-        <Explore />
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <AuthProvider>
+        <CartProvider>
+          <ThemeProvider>
+            <BrowserRouter>
+              <ScreenBar />
+              <div className="pt-10 min-h-screen">
+                <Routes>
+                  <Route path='/' element={<AboutMarquee />} />
+        <Route path='/herolanding' element={<HeroLanding />} />
+        <Route path='/footer' element={<Footer />} />
+        <Route path='/showcaseexplore' element={<ShowcaseExplore />} />
+        <Route path='/servicesprojects' element={<ServicesProjects />} />
+        <Route path='/projectinquiry' element={<ProjectInquiry />} />
+                  <Route path="*" element={<AboutMarquee />} />
+                </Routes>
+              </div>
+            </BrowserRouter>
+          </ThemeProvider>
+        </CartProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }

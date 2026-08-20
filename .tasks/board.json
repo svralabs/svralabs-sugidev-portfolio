@@ -1,23 +1,24 @@
 {
   "project_name": "svralabs-sugidev-portfolio",
-  "architecture_summary": "Single-page React app. Static build. TailwindCSS for styling. No backend. Dark-orange luxury theme. Mobile-first responsive. Pre-rendered marquee. Lazy-loaded project images. Footer collection links static. No auth. No state management library. Native fetch for any future API calls.",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Reusable components in src/components/. CSS modules for styling. React Router v6 for navigation. No state management lib (useContext + useReducer for global state). Vite for build. Prettier + ESLint for code quality. Mobile-first responsive design. Dark/light mode toggle via CSS variables. Static site deployment (Vercel/Netlify).",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Hero landing page (src/pages/Home.jsx)",
-      "description": "Build hero landing section. Dark-orange gradient background. Luxury serif headline. Subtle animated underline on main CTA. Fixed bottom-right scroll prompt icon. Mobile: stack headline and CTA. Desktop: side-by-side.",
+      "title": "Convert Stitch hero landing screen to React page component",
+      "source_screen": "sugidev_hero_landing",
+      "description": "Extract HTML/CSS from Stitch screen. Create src/pages/HeroLanding.jsx. Replace static paths with Vite asset imports. Add aria-labels for accessibility. Ensure responsive breakpoints match design. Extract reusable Button component if repeated.",
       "target_files": [
-        "src/pages/Home.jsx"
+        "src/pages/HeroLanding.jsx",
+        "src/components/Button.jsx"
       ],
       "acceptance_criteria": [
-        "Headline: 'Sugidev' in Playfair Display, 4rem mobile, 6rem desktop",
-        "Subhead: 'Digital Craftsman' in Inter, 1.25rem, 300 weight, 0.1em letter spacing",
-        "CTA: 'Explore Work' button, dark-orange bg, gold hover, 1.5s underline animation on load",
-        "Scroll prompt: chevron-down icon, fixed bottom-right, 2s bounce animation loop",
-        "Tailwind config: dark-orange (#D2691E) primary, gold (#FFD700) accent, dark slate (#2F4F4F) text",
-        "Responsive: mobile stack, desktop flex-row with 60/40 split"
+        "Pixel-perfect match to Stitch screen",
+        "Mobile/desktop responsive",
+        "No console errors",
+        "Passes Lighthouse accessibility audit",
+        "Button component reusable (if extracted)"
       ],
       "status": "DONE"
     },
@@ -25,17 +26,18 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Marquee about component (src/components/Marquee.jsx)",
-      "description": "Build horizontal marquee. Luxury serif skills text. Dark-orange bg. Gold text. Infinite scroll. Pause on hover. Mobile: slower speed, smaller font.",
+      "title": "Convert showcase explore section to React page component",
+      "source_screen": "sugidev_showcase_explore_section",
+      "description": "Create src/pages/ShowcaseExplore.jsx. Implement horizontal scroll for project cards. Extract ProjectCard component if repeated. Add smooth scroll behavior. Ensure touch support for mobile.",
       "target_files": [
-        "src/components/Marquee.jsx"
+        "src/pages/ShowcaseExplore.jsx",
+        "src/components/ProjectCard.jsx"
       ],
       "acceptance_criteria": [
-        "Text: 'UI Engineer \u2022 Designer \u2022 Creator' in Playfair Display, 2rem mobile, 3rem desktop",
-        "Animation: CSS @keyframes scroll, 30s duration, linear timing, infinite loop",
-        "Hover: pause animation, underline text",
-        "Tailwind: dark-orange bg, gold text, 0.5 opacity on non-hover",
-        "Responsive: 1.5rem mobile, 2.5rem desktop, 20s mobile duration"
+        "Pixel-perfect match to Stitch screen",
+        "Horizontal scroll works on all devices",
+        "Project cards clickable (placeholder links)",
+        "No layout shift on load"
       ],
       "status": "DONE"
     },
@@ -43,17 +45,18 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Services showcase component (src/components/Services.jsx)",
-      "description": "Build services grid. 3 luxury cards. Dark-orange bg. Gold border. Hover: scale 1.05, gold glow. Mobile: 1 column. Desktop: 3 columns.",
+      "title": "Convert services & projects screen to React page component",
+      "source_screen": "sugidev_services_projects",
+      "description": "Create src/pages/ServicesProjects.jsx. Implement tabbed interface for services/projects. Extract ServiceCard component. Add fade-in animation on tab switch. Ensure keyboard navigation support.",
       "target_files": [
-        "src/components/Services.jsx"
+        "src/pages/ServicesProjects.jsx",
+        "src/components/ServiceCard.jsx"
       ],
       "acceptance_criteria": [
-        "Cards: 'Design', 'Development', 'Consulting' in Playfair Display, 1.75rem",
-        "Icons: Figma, VSCode, Slack from react-icons/fa, 2rem, gold",
-        "Hover: transform scale 1.05, box-shadow 0 0 20px gold",
-        "Tailwind: dark-orange bg, gold border, dark slate text",
-        "Responsive: 1 column mobile, 3 columns desktop, 2rem gap"
+        "Pixel-perfect match to Stitch screen",
+        "Tab switching works without page reload",
+        "Animation duration matches design (300ms)",
+        "Keyboard navigation (arrow keys + Enter)"
       ],
       "status": "DONE"
     },
@@ -61,17 +64,18 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Projects showcase component (src/components/Projects.jsx)",
-      "description": "Build projects grid. 6 cards. Dark-orange bg. Gold border. Lazy-loaded images. Hover: scale 1.05, gold glow. Mobile: 1 column. Desktop: 2 columns.",
+      "title": "Convert marquee about section to React page component",
+      "source_screen": "sugidev_marquee_about_section",
+      "description": "Create src/pages/AboutMarquee.jsx. Implement auto-scrolling marquee text. Add pause on hover. Extract Marquee component if reusable. Ensure marquee speed matches design (40px/s).",
       "target_files": [
-        "src/components/Projects.jsx"
+        "src/pages/AboutMarquee.jsx",
+        "src/components/Marquee.jsx"
       ],
       "acceptance_criteria": [
-        "Cards: 6 project cards, placeholder images (public/projects/1.jpg), title in Playfair Display, 1.5rem",
-        "Lazy load: native loading='lazy' on img tags",
-        "Hover: transform scale 1.05, box-shadow 0 0 20px gold",
-        "Tailwind: dark-orange bg, gold border, dark slate text",
-        "Responsive: 1 column mobile, 2 columns desktop, 2rem gap"
+        "Pixel-perfect match to Stitch screen",
+        "Marquee loops seamlessly",
+        "Pause on hover works",
+        "No performance jank on scroll"
       ],
       "status": "DONE"
     },
@@ -79,16 +83,18 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Explore section component (src/components/Explore.jsx)",
-      "description": "Build explore section. Dark-orange bg. Luxury serif headline. Gold CTA button. Mobile: stack. Desktop: side-by-side.",
+      "title": "Convert collection footer section to React page component",
+      "source_screen": "sugidev_collection_footer_section",
+      "description": "Create src/pages/Footer.jsx. Implement 3-column layout. Add social media icons (SVG imports). Extract NewsletterSignup component if form exists. Ensure footer sticks to bottom on short pages.",
       "target_files": [
-        "src/components/Explore.jsx"
+        "src/pages/Footer.jsx",
+        "src/components/NewsletterSignup.jsx"
       ],
       "acceptance_criteria": [
-        "Headline: 'Explore More' in Playfair Display, 3rem mobile, 4rem desktop",
-        "CTA: 'View All Projects' button, gold bg, dark-orange hover, 1.5rem",
-        "Tailwind: dark-orange bg, gold text, dark slate text",
-        "Responsive: mobile stack, desktop flex-row with 50/50 split"
+        "Pixel-perfect match to Stitch screen",
+        "Social links open in new tab",
+        "Form validation for newsletter (if exists)",
+        "Sticky footer behavior"
       ],
       "status": "DONE"
     },
@@ -96,16 +102,19 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Collection footer component (src/components/Footer.jsx)",
-      "description": "Build footer. 4 columns: Links, Projects, Socials, Copyright. Dark-orange bg. Gold text. Mobile: 1 column. Desktop: 4 columns.",
+      "title": "Convert project inquiry/contact screens to React page components",
+      "source_screen": "project_inquiry_clean_background, contact_clean_background",
+      "description": "Create src/pages/ProjectInquiry.jsx and src/pages/Contact.jsx. Implement form validation (required fields, email format). Add success/error states. Extract FormInput component. Ensure form submission logs to console (placeholder).",
       "target_files": [
-        "src/components/Footer.jsx"
+        "src/pages/ProjectInquiry.jsx",
+        "src/pages/Contact.jsx",
+        "src/components/FormInput.jsx"
       ],
       "acceptance_criteria": [
-        "Columns: Links (Home, About, Contact), Projects (6 links), Socials (GitHub, LinkedIn, Twitter), Copyright (\u00a9 2023 Sugidev)",
-        "Text: Playfair Display for headers, Inter for links, 1rem",
-        "Tailwind: dark-orange bg, gold text, dark slate text",
-        "Responsive: 1 column mobile, 4 columns desktop, 2rem gap"
+        "Pixel-perfect match to Stitch screens",
+        "Form validation works",
+        "Success/error states visible",
+        "No form submission refreshes page"
       ],
       "status": "DONE"
     },
@@ -113,18 +122,19 @@
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Global styles and Tailwind config (src/styles/globals.css, tailwind.config.js)",
-      "description": "Configure Tailwind. Dark-orange theme. Luxury fonts. Base styles. Responsive breakpoints. No custom CSS unless Tailwind impossible.",
+      "title": "Extract reusable UI components from component reference screens",
+      "source_screen": "button_showcase_component_reference, badge_showcase_component_reference, devos_table_components_reference",
+      "description": "Create src/components/Button.jsx, src/components/Badge.jsx, src/components/Table.jsx. Implement all variants from Stitch screens. Add PropTypes. Ensure components match design tokens (colors, spacing, typography).",
       "target_files": [
-        "src/styles/globals.css",
-        "tailwind.config.js"
+        "src/components/Button.jsx",
+        "src/components/Badge.jsx",
+        "src/components/Table.jsx"
       ],
       "acceptance_criteria": [
-        "Tailwind config: dark-orange (#D2691E) primary, gold (#FFD700) secondary, dark slate (#2F4F4F) text",
-        "Fonts: Playfair Display (serif), Inter (sans-serif) from Google Fonts",
-        "Base styles: body bg dark slate, text dark slate, antialiased",
-        "Breakpoints: sm 640px, md 768px, lg 1024px, xl 1280px",
-        "No custom CSS unless Tailwind cannot do it"
+        "All variants from Stitch screens implemented",
+        "PropTypes defined for all props",
+        "Components match design tokens",
+        "No console warnings"
       ],
       "status": "DONE"
     },
@@ -132,21 +142,25 @@
       "id": "TASK-008",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "App shell and navigation wiring (src/App.jsx)",
-      "description": "Wire all components. Single route. Dark-orange luxury theme. Mobile-first responsive. No routing library. Static build.",
+      "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
+      "source_screen": "",
+      "description": "Create src/App.jsx. Implement React Router v6 routes for all pages. Add navigation bar with active state. Implement dark/light mode toggle (CSS variables). Ensure 404 page. Add scroll-to-top on route change. Set up global styles (src/index.css).",
       "target_files": [
-        "src/App.jsx"
+        "src/App.jsx",
+        "src/index.css",
+        "src/pages/NotFound.jsx"
       ],
       "acceptance_criteria": [
-        "Import: all components (Home, Marquee, Services, Projects, Explore, Footer)",
-        "Layout: vertical stack, no gaps, full width",
-        "Theme: dark-orange luxury, consistent across all components",
-        "Responsive: mobile-first, no horizontal scroll",
-        "No routing: single page, no react-router or similar"
+        "All pages accessible via navigation",
+        "Active route highlighted in nav",
+        "Dark/light mode toggle works",
+        "404 page shows for unknown routes",
+        "No layout shift on route change",
+        "Global styles match design system"
       ],
-      "status": "TODO"
+      "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 03:02:40"
+  "updated_at": "2026-08-20 12:32:18"
 }

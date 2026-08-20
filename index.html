@@ -4,9 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>svralabs-sugidev-portfolio</title>
+    <title>SVRALABS — Sugidev-Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#0c0c0c', 
+              'ink-soft': '#141416', 
+              paper: '#ece7dd',
+              'paper-ink': '#1a1714', 
+              mist: '#d7e2ea', 
+              ember: '#ff5a1f', 
+              'ember-deep': '#c2410c',
+            },
+            fontFamily: { 
+              sans: ['Kanit', 'ui-sans-serif', 'system-ui', 'sans-serif'] 
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
+  <body class="bg-background text-on-background min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
