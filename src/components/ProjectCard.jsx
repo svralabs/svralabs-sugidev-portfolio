@@ -1,26 +1,27 @@
 import React from 'react';
-import styles from './ProjectCard.module.css';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ number, client, year, title, tags, imageUrl }) {
   return (
-    <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img src={project.image} alt={project.title} className={styles.image} />
-        <div className={styles.overlay}>
-          <div className={styles.overlayContent}>
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </div>
+    <div className="sticky top-32 flex flex-col xl:flex-row gap-8 bg-ink-soft rounded-xl p-8 border border-mist/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] origin-top" style={{ transform: 'scale(0.95)' }}>
+      <div className="flex flex-col gap-6 xl:w-1/3">
+        <span className="font-display-hero-mobile text-display-hero-mobile text-mist/20 leading-none">{number}</span>
+        <div>
+          <span className="font-overline text-overline text-ember uppercase tracking-widest block mb-2">{client} · {year}</span>
+          <h3 className="font-h1 text-h1 uppercase text-mist">{title}</h3>
         </div>
-      </div>
-      <div className={styles.content}>
-        <h3 className={styles.title}>{project.title}</h3>
-        <p className={styles.description}>{project.description}</p>
-        <div className={styles.tags}>
-          {project.tags.map((tag, index) => (
-            <span key={index} className={styles.tag}>{tag}</span>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span key={index} className="px-4 py-1 rounded-full border border-mist/15 font-caption text-caption uppercase text-mist/80">
+              {tag}
+            </span>
           ))}
         </div>
       </div>
+      {imageUrl && (
+        <div className="xl:w-2/3 rounded-lg overflow-hidden">
+          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+        </div>
+      )}
     </div>
   );
 }
