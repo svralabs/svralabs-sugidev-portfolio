@@ -1,24 +1,24 @@
 {
   "project_name": "svralabs-sugidev-portfolio",
-  "architecture_summary": "Modular React app. Pages in src/pages/. Reusable components in src/components/. CSS modules for styling. React Router v6 for navigation. No state management lib (useContext + useReducer for global state). Vite for build. Prettier + ESLint for code quality. Mobile-first responsive design. Dark/light mode toggle via CSS variables. Static site deployment (Vercel/Netlify).",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Reusable components in src/components/. Static assets in public/. Tailwind CSS for styling. React Router for navigation. No state management library (local state sufficient).",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert Stitch hero landing screen to React page component",
+      "title": "Create Hero Landing page (sugidev_hero_landing)",
       "source_screen": "sugidev_hero_landing",
-      "description": "Extract HTML/CSS from Stitch screen. Create src/pages/HeroLanding.jsx. Replace static paths with Vite asset imports. Add aria-labels for accessibility. Ensure responsive breakpoints match design. Extract reusable Button component if repeated.",
+      "description": "Convert Stitch HTML to React component. Extract reusable Button, Badge components from button_showcase_component_reference, badge_showcase_component_reference. Use Tailwind classes for styling. Preserve animations/interactions.",
       "target_files": [
         "src/pages/HeroLanding.jsx",
-        "src/components/Button.jsx"
+        "src/components/Button.jsx",
+        "src/components/Badge.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Mobile/desktop responsive",
-        "No console errors",
-        "Passes Lighthouse accessibility audit",
-        "Button component reusable (if extracted)"
+        "Pixel-perfect match to Stitch design",
+        "Button, Badge components reusable across app",
+        "Mobile-responsive",
+        "Animations work as in design"
       ],
       "status": "DONE"
     },
@@ -26,18 +26,17 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert showcase explore section to React page component",
+      "title": "Create Showcase Explore section (sugidev_showcase_explore_section)",
       "source_screen": "sugidev_showcase_explore_section",
-      "description": "Create src/pages/ShowcaseExplore.jsx. Implement horizontal scroll for project cards. Extract ProjectCard component if repeated. Add smooth scroll behavior. Ensure touch support for mobile.",
+      "description": "Convert Stitch HTML to React component. Use existing Button, Badge components. Implement grid layout for project cards. Add hover effects as in design.",
       "target_files": [
-        "src/pages/ShowcaseExplore.jsx",
-        "src/components/ProjectCard.jsx"
+        "src/pages/ShowcaseExplore.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Horizontal scroll works on all devices",
-        "Project cards clickable (placeholder links)",
-        "No layout shift on load"
+        "Pixel-perfect match to Stitch design",
+        "Project cards responsive (3-column desktop, 2-column tablet, 1-column mobile)",
+        "Hover effects match design",
+        "Links functional"
       ],
       "status": "DONE"
     },
@@ -45,18 +44,18 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert services & projects screen to React page component",
-      "source_screen": "sugidev_services_projects",
-      "description": "Create src/pages/ServicesProjects.jsx. Implement tabbed interface for services/projects. Extract ServiceCard component. Add fade-in animation on tab switch. Ensure keyboard navigation support.",
+      "title": "Create Marquee About section (sugidev_marquee_about_section)",
+      "source_screen": "sugidev_marquee_about_section",
+      "description": "Convert Stitch HTML to React component. Implement marquee animation using CSS. Extract reusable Marquee component if used elsewhere.",
       "target_files": [
-        "src/pages/ServicesProjects.jsx",
-        "src/components/ServiceCard.jsx"
+        "src/pages/MarqueeAbout.jsx",
+        "src/components/Marquee.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Tab switching works without page reload",
-        "Animation duration matches design (300ms)",
-        "Keyboard navigation (arrow keys + Enter)"
+        "Pixel-perfect match to Stitch design",
+        "Marquee animation smooth, infinite loop",
+        "Text readable during animation",
+        "Mobile-responsive"
       ],
       "status": "DONE"
     },
@@ -64,18 +63,17 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert marquee about section to React page component",
-      "source_screen": "sugidev_marquee_about_section",
-      "description": "Create src/pages/AboutMarquee.jsx. Implement auto-scrolling marquee text. Add pause on hover. Extract Marquee component if reusable. Ensure marquee speed matches design (40px/s).",
+      "title": "Create Services & Projects page (sugidev_services_projects)",
+      "source_screen": "sugidev_services_projects",
+      "description": "Convert Stitch HTML to React component. Use existing Button, Badge components. Implement tab switching for Services/Projects. Add project filtering if present in design.",
       "target_files": [
-        "src/pages/AboutMarquee.jsx",
-        "src/components/Marquee.jsx"
+        "src/pages/ServicesProjects.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Marquee loops seamlessly",
-        "Pause on hover works",
-        "No performance jank on scroll"
+        "Pixel-perfect match to Stitch design",
+        "Tab switching works without page reload",
+        "Project filtering functional if in design",
+        "Mobile-responsive"
       ],
       "status": "DONE"
     },
@@ -83,18 +81,17 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert collection footer section to React page component",
+      "title": "Create Footer section (sugidev_collection_footer_section)",
       "source_screen": "sugidev_collection_footer_section",
-      "description": "Create src/pages/Footer.jsx. Implement 3-column layout. Add social media icons (SVG imports). Extract NewsletterSignup component if form exists. Ensure footer sticks to bottom on short pages.",
+      "description": "Convert Stitch HTML to React component. Extract reusable Footer component. Add social media links. Ensure copyright year auto-updates.",
       "target_files": [
-        "src/pages/Footer.jsx",
-        "src/components/NewsletterSignup.jsx"
+        "src/components/Footer.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screen",
-        "Social links open in new tab",
-        "Form validation for newsletter (if exists)",
-        "Sticky footer behavior"
+        "Pixel-perfect match to Stitch design",
+        "Social media links functional",
+        "Copyright year dynamic",
+        "Mobile-responsive"
       ],
       "status": "DONE"
     },
@@ -102,19 +99,19 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert project inquiry/contact screens to React page components",
-      "source_screen": "project_inquiry_clean_background, contact_clean_background",
-      "description": "Create src/pages/ProjectInquiry.jsx and src/pages/Contact.jsx. Implement form validation (required fields, email format). Add success/error states. Extract FormInput component. Ensure form submission logs to console (placeholder).",
+      "title": "Create Contact & Inquiry pages (contact_clean_background, project_inquiry_clean_background)",
+      "source_screen": "contact_clean_background, project_inquiry_clean_background",
+      "description": "Convert Stitch HTML to React components. Implement form validation. Add form submission handler (mock API). Extract reusable FormInput component.",
       "target_files": [
-        "src/pages/ProjectInquiry.jsx",
         "src/pages/Contact.jsx",
+        "src/pages/ProjectInquiry.jsx",
         "src/components/FormInput.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch screens",
-        "Form validation works",
-        "Success/error states visible",
-        "No form submission refreshes page"
+        "Pixel-perfect match to Stitch designs",
+        "Form validation works (required fields, email format)",
+        "Form submission shows success message",
+        "Mobile-responsive"
       ],
       "status": "DONE"
     },
@@ -122,19 +119,18 @@
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Extract reusable UI components from component reference screens",
-      "source_screen": "button_showcase_component_reference, badge_showcase_component_reference, devos_table_components_reference",
-      "description": "Create src/components/Button.jsx, src/components/Badge.jsx, src/components/Table.jsx. Implement all variants from Stitch screens. Add PropTypes. Ensure components match design tokens (colors, spacing, typography).",
+      "title": "Create Insights page (insights_clean_background)",
+      "source_screen": "insights_clean_background",
+      "description": "Convert Stitch HTML to React component. Implement blog post grid. Add filtering/sorting if present in design. Extract reusable Card component.",
       "target_files": [
-        "src/components/Button.jsx",
-        "src/components/Badge.jsx",
-        "src/components/Table.jsx"
+        "src/pages/Insights.jsx",
+        "src/components/Card.jsx"
       ],
       "acceptance_criteria": [
-        "All variants from Stitch screens implemented",
-        "PropTypes defined for all props",
-        "Components match design tokens",
-        "No console warnings"
+        "Pixel-perfect match to Stitch design",
+        "Blog post grid responsive",
+        "Filtering/sorting functional if in design",
+        "Mobile-responsive"
       ],
       "status": "DONE"
     },
@@ -144,23 +140,22 @@
       "model": "hermes-auto",
       "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
       "source_screen": "",
-      "description": "Create src/App.jsx. Implement React Router v6 routes for all pages. Add navigation bar with active state. Implement dark/light mode toggle (CSS variables). Ensure 404 page. Add scroll-to-top on route change. Set up global styles (src/index.css).",
+      "description": "Create main App component. Set up React Router with routes for all pages. Implement navigation bar with active state. Add 404 page. Ensure smooth page transitions.",
       "target_files": [
         "src/App.jsx",
-        "src/index.css",
+        "src/components/Navbar.jsx",
         "src/pages/NotFound.jsx"
       ],
       "acceptance_criteria": [
         "All pages accessible via navigation",
-        "Active route highlighted in nav",
-        "Dark/light mode toggle works",
+        "Active route highlighted in navbar",
         "404 page shows for unknown routes",
-        "No layout shift on route change",
-        "Global styles match design system"
+        "Page transitions smooth",
+        "Mobile-responsive navbar (hamburger menu if needed)"
       ],
       "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 12:32:18"
+  "updated_at": "2026-08-20 16:08:01"
 }

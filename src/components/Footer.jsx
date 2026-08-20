@@ -1,12 +1,7 @@
 import {Globe as ArrowUpRight} from 'lucide-react';
 
 export default function Footer() {
-  const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'X / Globe', url: 'https://twitter.com' },
-    { name: 'CodePen', url: 'https://codepen.io' }
-  ];
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-ink px-5 sm:px-8 md:px-10 pt-24 sm:pt-28 md:pt-36 pb-10" id="contact">
@@ -27,14 +22,13 @@ export default function Footer() {
       </div>
       <div className="max-w-6xl mx-auto mt-20 sm:mt-28 md:mt-36 pt-8 border-t border-mist/10 flex flex-col sm:flex-row gap-6 sm:gap-4 items-start sm:items-center justify-between">
         <span className="text-mist/40 text-xs sm:text-sm uppercase tracking-widest">
-          © 2026 sugidev° — Frontend Developer
+          © {currentYear} sugidev° — Frontend Developer
         </span>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
-          {socialLinks.map((link) => (
-            <a key={link.name} className="text-mist/60 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-ember" href={link.url} target="_blank" rel="noopener noreferrer">
-              {link.name}
-            </a>
-          ))}
+          <a className="text-mist/60 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-ember" href="https://github.com">GitHub</a>
+          <a className="text-mist/60 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-ember" href="https://linkedin.com">LinkedIn</a>
+          <a className="text-mist/60 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-ember" href="https://twitter.com">X / Globe</a>
+          <a className="text-mist/60 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-ember" href="https://codepen.io">CodePen</a>
         </div>
         <a className="text-mist/40 text-xs sm:text-sm uppercase tracking-widest transition-colors hover:text-mist" href="#top">
           Back to top ↑

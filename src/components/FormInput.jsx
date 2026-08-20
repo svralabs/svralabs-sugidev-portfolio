@@ -1,24 +1,30 @@
 import { useState } from 'react';
 
-export default function FormInput({ label, id, type, placeholder, value, onChange, error }) {
+export default function FormInput({ label, id, type, placeholder, required, value, onChange }) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div className="flex flex-col gap-2">
-      <label className="font-nav-link text-nav-link uppercase text-on-surface-variant" htmlFor={id}>
+    <div className="group">
+      <label
+        className="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-3"
+        htmlFor={id}
+      >
         {label}
       </label>
       <input
-        className={`bg-ink-soft border-b border-mist/20 py-4 px-1 text-xl font-light text-on-surface glow-focus transition-glow placeholder:text-mist/20 focus:bg-surface-container ${error ? 'border-error' : ''}`}
+        className={`w-full bg-background border-b-2 ${
+          isFocused ? 'border-ember' : 'border-surface-variant/30'
+        } text-on-surface px-0 py-4 focus:outline-none focus:ring-0 transition-all placeholder:text-surface-variant/40`}
         id={id}
+        name={id}
         type={type}
         placeholder={placeholder}
+        required={required}
         value={value}
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
-      {error && <p className="text-error text-sm mt-1">{error}</p>}
     </div>
   );
 }

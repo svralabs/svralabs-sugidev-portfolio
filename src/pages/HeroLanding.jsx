@@ -1,22 +1,7 @@
-import { useState } from 'react';
 import Button from '../components/Button';
+import Badge from '../components/Badge';
 
 export default function HeroLanding() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Work', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Contact', href: '#' },
-  ];
-
-  const socialLinks = [
-    { name: 'Globe', href: '#' },
-    { name: 'LinkedIn', href: '#' },
-    { name: 'Source', href: '#' },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
       {/* TopNavBar */}
@@ -28,68 +13,38 @@ export default function HeroLanding() {
           </a>
           {/* Links (Hidden on mobile, flex on md+) */}
           <div className="hidden md:flex gap-stack-md items-center">
-            {navLinks.map((link) => (
+            {['Work', 'Services', 'About', 'Contact'].map((item) => (
               <a
-                key={link.name}
+                key={item}
                 className="font-nav-link text-nav-link uppercase text-on-surface-variant hover:text-ember transition-all duration-300"
-                href={link.href}
+                href="#"
               >
-                {link.name}
+                {item}
               </a>
             ))}
           </div>
           {/* Trailing Action */}
-          <Button
-            className="hidden md:inline-flex"
-            variant="primary"
-            href="#"
-          >
+          <Button variant="primary" size="md" className="hidden md:inline-flex">
             Let's Build
           </Button>
           {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-on-surface"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-          >
+          <button className="md:hidden text-on-surface">
             <span className="material-symbols-outlined text-3xl">menu</span>
           </button>
         </div>
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-surface/95 border-b border-mist/10">
-            <div className="flex flex-col gap-4 px-margin-mobile py-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  className="font-nav-link text-nav-link uppercase text-on-surface-variant hover:text-ember transition-all duration-300"
-                  href={link.href}
-                >
-                  {link.name}
-                </a>
-              ))}
-              <Button
-                variant="primary"
-                href="#"
-              >
-                Let's Build
-              </Button>
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* Main Content Canvas */}
       <main className="flex-grow pt-24 pb-section-gap-sm md:pb-section-gap-lg flex flex-col justify-center overflow-x-hidden relative">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full text-center relative z-10 flex flex-col items-center">
           {/* Availability Badge */}
-          <div className="glass-pill rounded-full px-4 py-2 flex items-center gap-2 mb-stack-md w-fit mx-auto">
+          <Badge variant="success" className="mb-stack-md">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
             </span>
             <span className="font-overline text-overline text-mist uppercase tracking-widest">Available for work</span>
-          </div>
+          </Badge>
 
           {/* Hero Typography */}
           <div className="w-full relative py-8 md:py-16">
@@ -119,13 +74,9 @@ export default function HeroLanding() {
 
           {/* Action */}
           <div className="mt-section-gap-sm">
-            <Button
-              variant="primary"
-              href="#contact"
-              className="px-8 py-4 text-lg"
-            >
+            <Button variant="primary" size="lg" className="gap-2">
               Contact Me
-              <span className="material-symbols-outlined text-xl ml-2">arrow_forward</span>
+              <span className="material-symbols-outlined text-xl">arrow_forward</span>
             </Button>
           </div>
         </div>
@@ -146,13 +97,13 @@ export default function HeroLanding() {
 
           {/* Links */}
           <div className="flex gap-4 items-center">
-            {socialLinks.map((link) => (
+            {['Globe', 'LinkedIn', 'Source'].map((item) => (
               <a
-                key={link.name}
+                key={item}
                 className="font-caption text-caption uppercase text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity"
-                href={link.href}
+                href="#"
               >
-                {link.name}
+                {item}
               </a>
             ))}
           </div>

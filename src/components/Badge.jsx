@@ -1,37 +1,15 @@
-import PropTypes from 'prop-types';
-
-export default function Badge({
-  variant = 'default',
-  size = 'md',
-  children,
-  className = '',
-  ...props
-}) {
-  const baseClasses = 'inline-flex items-center justify-center rounded-full font-kanit font-bold uppercase tracking-wider';
+export default function Badge({ children, variant = 'default', className = '', ...props }) {
+  const baseClasses = 'rounded-full px-4 py-2 flex items-center gap-2 w-fit';
   const variantClasses = {
-    default: 'bg-ink-soft text-on-background',
-    ember: 'bg-ember text-white',
-    mist: 'bg-mist text-background',
-  };
-  const sizeClasses = {
-    sm: 'px-3 py-1 text-xs',
-    md: 'px-4 py-1.5 text-sm',
-    lg: 'px-5 py-2 text-base',
+    default: 'bg-surface/50 backdrop-blur-sm border border-mist/20',
+    success: 'bg-success-container/20 border border-success/30',
+    warning: 'bg-warning-container/20 border border-warning/30',
+    error: 'bg-error-container/20 border border-error/30',
   };
 
   return (
-    <span
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      {...props}
-    >
+    <div className={`${baseClasses} ${variantClasses[variant]} ${className}`} {...props}>
       {children}
-    </span>
+    </div>
   );
 }
-
-Badge.propTypes = {
-  variant: PropTypes.oneOf(['default', 'ember', 'mist']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};

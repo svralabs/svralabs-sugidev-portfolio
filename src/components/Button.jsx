@@ -1,49 +1,27 @@
-import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
-export default function Button({
-  variant = 'primary',
-  size = 'md',
-  children,
-  icon,
-  iconPosition = 'right',
-  className = '',
-  ...props
-}) {
-  const baseClasses = 'font-kanit font-bold uppercase tracking-wider rounded-md transition-all active:scale-95';
+export default function Button({ children, variant = 'primary', size = 'md', className = '', ...props }) {
+  const baseClasses = 'font-nav-link text-nav-link uppercase rounded-full inline-flex items-center justify-center transition-all duration-300';
   const variantClasses = {
-    primary: 'bg-ember text-white ember-glow hover:-translate-y-1',
-    ink: 'bg-ink-soft text-on-background border border-mist/10 hover:bg-mist/10',
-    ghost: 'bg-transparent text-on-background border border-transparent hover:border-mist/20 hover:bg-mist/5',
-    mist: 'bg-mist text-background hover:bg-white',
-    outlineEmber: 'bg-transparent text-ember border-2 border-ember hover:bg-ember hover:text-white',
-    outlineMist: 'bg-transparent text-mist border-2 border-mist/30 hover:border-mist hover:bg-mist/5',
+    primary: 'bg-primary-container text-ink hover:bg-primary-container/90',
+    secondary: 'bg-surface text-on-surface hover:bg-surface/90',
+    outline: 'border border-mist/20 text-on-surface hover:bg-mist/10',
+    text: 'text-on-surface hover:text-primary',
   };
   const sizeClasses = {
-    sm: 'px-6 py-2 text-sm',
-    md: 'px-8 py-3.5',
-    lg: 'px-10 py-5 text-lg tracking-widest',
+    sm: 'px-4 py-2 text-sm',
+    md: 'px-6 py-2 text-nav-link',
+    lg: 'px-8 py-4 text-lg',
   };
 
-  const iconClasses = 'material-symbols-outlined text-lg';
-  const iconElement = icon && <span className={iconClasses}>{icon}</span>;
-
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       {...props}
     >
-      {iconPosition === 'left' && iconElement}
       {children}
-      {iconPosition === 'right' && iconElement}
-    </button>
+    </motion.button>
   );
 }
-
-Button.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'ink', 'ghost', 'mist', 'outlineEmber', 'outlineMist']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.string,
-  iconPosition: PropTypes.oneOf(['left', 'right']),
-  className: PropTypes.string,
-};
